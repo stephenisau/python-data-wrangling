@@ -29,7 +29,22 @@ def process_file(input_file, output_good, output_bad):
         reader = csv.DictReader(f)
         header = reader.fieldnames
 
-        #COMPLETE THIS FUNCTION
+        for row in reader:
+            # validate URI value
+            if row['URI'].find("dbpedia.org") < 0:
+                continue
+
+            ps_year = row['productionStartYear'][:4]
+            try:  # use try/except to filter valid items
+                ps_year = int(ps_year)
+                row['productionStartYear'] = ps_year
+                if (ps_year >= 1886) and (ps_year <= 2014):
+                    data_good.append(row)
+                else:
+                    data_bad.append(row)
+            except ValueError:  # non-numeric strings caught by exeption
+                if ps_year == 'NULL':
+                    data_bad.append(row)
 
 
 

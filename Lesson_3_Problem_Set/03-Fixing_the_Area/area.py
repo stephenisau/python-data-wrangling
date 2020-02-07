@@ -29,7 +29,6 @@ def fix_area(area):
 
 
 def process_file(filename):
-    # CHANGES TO THIS FUNCTION WILL BE IGNORED WHEN YOU SUBMIT THE EXERCISE
     data = []
 
     with open(filename, "r") as f:
