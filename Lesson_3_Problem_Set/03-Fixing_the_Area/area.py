@@ -22,7 +22,18 @@ CITIES = 'cities.csv'
 
 def fix_area(area):
 
-    # YOUR CODE HERE
+    if area.startswith('{'):
+        area_list = area.replace('{', '').replace('}', '').split('|')
+        area0 = area_list[0]
+        area1 = area_list[1]
+        if len(area0) > len(area1):
+            area = float(area0)
+        else:
+            area = float(area1)
+    elif area == 'NULL' or '':
+        area = None
+    else:
+        area = float(area)
 
     return area
 

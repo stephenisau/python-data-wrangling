@@ -21,11 +21,12 @@ CITIES = 'cities.csv'
 
 def fix_name(name):
 
-    if type(name)==list:
-        name = name.split()
-        name0 = name[0]
-        name1 = name[1]
-
+    if name.startswith('{'):
+        name = name.replace('{', '').replace('}', '').split('|')
+    elif name == 'NULL':
+        name = []
+    else:
+        name = [name]
     return name
 
 
