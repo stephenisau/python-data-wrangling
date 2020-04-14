@@ -3,6 +3,13 @@ from collections import defaultdict
 import re
 import pprint
 
+"""
+This file is in charge of doing an initial data audit of the data types in the file.
+returns a dictionary like:
+
+
+"""
+
 street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
 
 expected = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Square", "Lane", "Road",
