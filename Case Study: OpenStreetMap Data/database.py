@@ -19,7 +19,7 @@ conn.commit()
 # create nodes_tags table
 cur.execute("CREATE TABLE nodes_tags (id, key, value, type);")
 with open('nodes_tags.csv', 'rb') as f:
-    dd = csv.DictReader(f)
+    d = csv.DictReader(f)
     to_db = [(i['id'], i['key'], i['value'], i['type']) for i in d]
 
 cur.executemany(
